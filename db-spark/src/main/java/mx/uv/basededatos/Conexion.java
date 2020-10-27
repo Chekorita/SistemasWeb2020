@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.lang.ClassNotFoundException;
 
 public class Conexion {
-    private static String url = "jdbc:mysql://127.0.0.1:3306/ejemplo_simple?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false";
+    private static String url = "jdbc:mysql://127.0.0.1:3306/depresion?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false";
     private static String driverName ="com.mysql.cj.jdbc.Driver";
     private static String user = "root";
     private static String password ="";
