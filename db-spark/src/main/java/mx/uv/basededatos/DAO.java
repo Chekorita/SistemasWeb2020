@@ -120,4 +120,38 @@ public class DAO {
         }
         return msj;
     }
+    public static String eliminarUsuarios(Usuarios u){
+        PreparedStatement st = null;
+        Connection con = null;
+        String msj = "";
+        con = conexion.getConnection();
+        try{
+            String sql = "delete from Usuarios where id=?)";
+            st = con.prepareStatement(sql);
+            st.setString(1,u.getId());
+            if(st.executeUpdate()>0){
+                msj = "El usuario fue eliminado";
+            }else{
+                msj = "No se pudo eliminado el usuario";
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            if(st != null){
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                st = null;
+            }
+            try {
+                con.close();
+                System.out.println("conexion cerrada");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return msj;
+    }
 }
